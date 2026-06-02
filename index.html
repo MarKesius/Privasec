@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privasec Quiz Viewer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div>
+        <a href="index.html" class="brand">Privasec</a>
+        <p>Ερωτήσεις Ιδιωτικής Ασφάλειας με απαντησεις</p>
+      </div>
+    </header>
+
+    <nav class="group-nav" aria-label="Επιλογή ομάδας">
+      <button class="group-btn active" data-group="a">Ομάδα Α</button>
+      <button class="group-btn" data-group="b">Ομάδα Β</button>
+    </nav>
+
+    <main>
+      <section class="intro-card">
+        <p>Επέλεξε μια από τις ομάδες και πάτα πάνω στις ερώτησεις  για να δεις τις επιλογές .</p>
+      </section>
+
+      <section id="questions" class="questions" aria-live="polite"></section>
+    </main>
+
+    <footer class="footer">
+      <p>Ομάδα Α = <code>quiz1.json</code>, Ομάδα Β = <code>quiz2.json</code></p>
+      <p>Στατικές ερωτήσεις / απαντήσεις.</p>
+    </footer>
+  </div>
+  
+  <div class="bmc-wrapper" id="bmcWrapper">
+    <div class="bmc-bubble" id="bmcBubble">
+      ☕ Αν σου φάνηκε χρήσιμη η σελίδα, κέρασέ με έναν καφέ!
+      <button class="bmc-close" id="bmcClose" title="Κλείσιμο">✕</button>
+    </div>
+    <a href="https://www.buymeacoffee.com/markes12" target="_blank" rel="noopener" class="bmc-btn">
+      <img src="https://cdn.buymeacoffee.com/buttons/bmc-new-btn-logo.svg" alt="Buy me a coffee">
+      Buy me a coffee
+    </a>
+  </div>
+
+  <script>
+    const closeBmc = document.getElementById('bmcClose');
+    const bmcBubble = document.getElementById('bmcBubble');
+    closeBmc.addEventListener('click', () => bmcBubble.style.display = 'none');
+  </script>
+
+  <script src="app.js"></script>
+</body>
+</html>
