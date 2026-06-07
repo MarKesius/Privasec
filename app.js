@@ -28,6 +28,21 @@ function getCorrectOptionText(options, correctLetter) {
   return formatted || correctLetter;
 }
 
+function applyQuestionResult(card, selectedOption, correctAnswer, correctLetter) {
+  const selected = (selectedOption || '').trim();
+  const answerText = (correctAnswer || '').trim();
+  const answerLetter = (correctLetter || '').trim();
+
+  card.classList.remove('correct', 'wrong');
+
+  if (!selected || (!answerText && !answerLetter)) {
+    return;
+  }
+
+  const isCorrect = selected === answerText || (answerLetter && selected.startsWith(answerLetter + '.'));
+  card.classList.add(isCorrect ? 'correct' : 'wrong');
+}
+
 function renderQuestions(groupKey, questions) {
   questionsContainer.innerHTML = '';
   const groupHeading = document.createElement('div');
@@ -52,7 +67,8 @@ function renderQuestions(groupKey, questions) {
     const optionsList = document.createElement('ul');
     optionsList.className = 'options';
 
-    const correctAnswer = getCorrectOptionText(item.options, item.correct || item.correctAnswer || '');
+    const correctLetter = item.correct || item.correctAnswer || '';
+    const correctAnswer = getCorrectOptionText(item.options, correctLetter);
     const answerBlock = document.createElement('div');
     answerBlock.className = 'answer-line';
     answerBlock.style.display = 'none';
@@ -70,11 +86,13 @@ function renderQuestions(groupKey, questions) {
         optionButton.classList.add('selected');
         selectedAnswers[answerKey] = optionText;
         answerBlock.style.display = 'block';
+        applyQuestionResult(card, optionText, correctAnswer, correctLetter);
       });
 
       if (selectedAnswers[answerKey] === optionText) {
         optionButton.classList.add('selected');
         answerBlock.style.display = 'block';
+        applyQuestionResult(card, optionText, correctAnswer, correctLetter);
       }
 
       optionItem.appendChild(optionButton);
