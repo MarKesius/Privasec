@@ -6,6 +6,7 @@ const GROUP_FILES = {
 const questionsContainer = document.getElementById('questions');
 const groupButtons = document.querySelectorAll('.group-btn');
 let loadedData = {};
+let selectedAnswers = {};
 
 async function loadGroupData(groupKey) {
   if (loadedData[groupKey]) {
@@ -35,6 +36,7 @@ function renderQuestions(groupKey, questions) {
   questionsContainer.appendChild(groupHeading);
 
   questions.forEach((item, index) => {
+    const answerKey = `${groupKey}-${index}`;
     const card = document.createElement('div');
     card.className = 'question-block';
 
@@ -66,8 +68,14 @@ function renderQuestions(groupKey, questions) {
         const allButtons = optionsList.querySelectorAll('button');
         allButtons.forEach(btn => btn.classList.remove('selected'));
         optionButton.classList.add('selected');
+        selectedAnswers[answerKey] = optionText;
         answerBlock.style.display = 'block';
       });
+
+      if (selectedAnswers[answerKey] === optionText) {
+        optionButton.classList.add('selected');
+        answerBlock.style.display = 'block';
+      }
 
       optionItem.appendChild(optionButton);
       optionsList.appendChild(optionItem);
@@ -76,18 +84,10 @@ function renderQuestions(groupKey, questions) {
     content.appendChild(optionsList);
     content.appendChild(answerBlock);
 
-    function resetCard() {
-      answerBlock.style.display = 'none';
-      optionsList.querySelectorAll('button').forEach(btn => btn.classList.remove('selected'));
-    }
-
     function closeOtherCards() {
       document.querySelectorAll('#questions .question-block').forEach(other => {
         if (other !== card && other.classList.contains('active')) {
           other.classList.remove('active');
-          const otherAnswer = other.querySelector('.answer-line');
-          if (otherAnswer) otherAnswer.style.display = 'none';
-          other.querySelectorAll('.option-button.selected').forEach(btn => btn.classList.remove('selected'));
         }
       });
     }
@@ -96,8 +96,6 @@ function renderQuestions(groupKey, questions) {
       const isOpen = card.classList.toggle('active');
       if (isOpen) {
         closeOtherCards();
-      } else {
-        resetCard();
       }
     };
 
