@@ -82,6 +82,17 @@ body {
   margin-bottom: 1rem;
 }
 
+.group-notice {
+  padding: 1rem 1.25rem;
+  border-radius: 16px;
+  background: #fff7ed;
+  border: 1px solid #fed7aa;
+  color: #9a3412;
+  font-weight: 600;
+  line-height: 1.45;
+  margin-bottom: 1rem;
+}
+
 .questions {
   display: grid;
   gap: 0.75rem;

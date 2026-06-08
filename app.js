@@ -50,6 +50,13 @@ function renderQuestions(groupKey, questions) {
   groupHeading.innerHTML = `<strong>Ομάδα ${groupKey.toUpperCase()}</strong> — ${questions.length} ερωτήσεις`;
   questionsContainer.appendChild(groupHeading);
 
+  if (groupKey === 'b') {
+    const groupNotice = document.createElement('div');
+    groupNotice.className = 'group-notice';
+    groupNotice.textContent = 'Για τις ερωτήσεις της ομάδας Β δεν υπάρχει συγκεκριμένη σωστή απάντηση';
+    questionsContainer.appendChild(groupNotice);
+  }
+
   questions.forEach((item, index) => {
     const answerKey = `${groupKey}-${index}`;
     const card = document.createElement('div');
@@ -69,6 +76,7 @@ function renderQuestions(groupKey, questions) {
 
     const correctLetter = item.correct || item.correctAnswer || '';
     const correctAnswer = getCorrectOptionText(item.options, correctLetter);
+    const hasCorrectAnswer = Boolean((correctLetter || '').trim());
     const answerBlock = document.createElement('div');
     answerBlock.className = 'answer-line';
     answerBlock.style.display = 'none';
@@ -85,13 +93,17 @@ function renderQuestions(groupKey, questions) {
         allButtons.forEach(btn => btn.classList.remove('selected'));
         optionButton.classList.add('selected');
         selectedAnswers[answerKey] = optionText;
-        answerBlock.style.display = 'block';
+        if (hasCorrectAnswer) {
+          answerBlock.style.display = 'block';
+        }
         applyQuestionResult(card, optionText, correctAnswer, correctLetter);
       });
 
       if (selectedAnswers[answerKey] === optionText) {
         optionButton.classList.add('selected');
-        answerBlock.style.display = 'block';
+        if (hasCorrectAnswer) {
+          answerBlock.style.display = 'block';
+        }
         applyQuestionResult(card, optionText, correctAnswer, correctLetter);
       }
 
@@ -100,7 +112,9 @@ function renderQuestions(groupKey, questions) {
     });
 
     content.appendChild(optionsList);
-    content.appendChild(answerBlock);
+    if (hasCorrectAnswer) {
+      content.appendChild(answerBlock);
+    }
 
     function closeOtherCards() {
       document.querySelectorAll('#questions .question-block').forEach(other => {
