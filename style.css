@@ -1,7 +1,7 @@
 :root {
   color-scheme: dark;
-  color: #111;
-  background: #f5f6fb;
+  color: #e2e8f0;
+  background: #0b1220;
   font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
@@ -12,7 +12,7 @@
 body {
   margin: 0;
   min-height: 100vh;
-  background: radial-gradient(circle at top, #eef0ff 0%, #f5f6fb 45%, #ffffff 100%);
+  background: radial-gradient(circle at top, #111827 0%, #0b1220 45%, #050816 100%);
 }
 
 .app-shell {
@@ -29,8 +29,8 @@ body {
   padding: 1.1rem 1.25rem;
   margin-bottom: 1rem;
   border-radius: 18px;
-  background: #ffffff;
-  box-shadow: 0 18px 55px rgba(43, 52, 92, 0.06);
+  background: #111827;
+  box-shadow: 0 18px 55px rgba(0, 0, 0, 0.6);
   text-align: center;
 }
 
@@ -38,13 +38,13 @@ body {
   display: inline-block;
   font-size: 1.5rem;
   font-weight: 900;
-  color: #173061;
+  color: #93c5fd;
   text-decoration: none;
 }
 
 .topbar p {
   margin: 0.25rem 0 0;
-  color: #475069;
+  color: #cbd5e1;
   line-height: 1.4;
 }
 
@@ -56,10 +56,10 @@ body {
 }
 
 .group-btn {
-  border: 1px solid #d8dce6;
+  border: 1px solid #334155;
   border-radius: 14px;
-  background: #ffffff;
-  color: #1b2768;
+  background: #111827;
+  color: #e2e8f0;
   padding: 0.95rem 1rem;
   font-size: 1rem;
   cursor: pointer;
@@ -68,26 +68,26 @@ body {
 
 .group-btn.active,
 .group-btn:hover {
-  border-color: #5d7bff;
-  box-shadow: 0 14px 30px rgba(93, 123, 255, 0.16);
-  background: #eef2ff;
+  border-color: #60a5fa;
+  box-shadow: 0 14px 30px rgba(96, 165, 250, 0.16);
+  background: #1f2937;
 }
 
 .intro-card {
   padding: 1.25rem 1.25rem 1.5rem;
   border-radius: 20px;
-  background: #ffffff;
-  border: 1px solid #e6e9f5;
-  color: #4b5563;
+  background: #111827;
+  border: 1px solid #1f2937;
+  color: #cbd5e1;
   margin-bottom: 1rem;
 }
 
 .group-notice {
   padding: 1rem 1.25rem;
   border-radius: 16px;
-  background: #fff7ed;
-  border: 1px solid #fed7aa;
-  color: #9a3412;
+  background: #422006;
+  border: 1px solid #7c2d12;
+  color: #fde68a;
   font-weight: 600;
   line-height: 1.45;
   margin-bottom: 1rem;
@@ -99,44 +99,44 @@ body {
 }
 
 .question-block {
-  background: #ffffff;
+  background: #111827;
   border-radius: 20px;
-  border: 1px solid #e6e9f5;
+  border: 1px solid #1f2937;
   overflow: hidden;
-  box-shadow: 0 12px 30px rgba(82, 95, 192, 0.06);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
   transition: box-shadow 0.2s ease;
 }
 
 .question-block:hover {
-  box-shadow: 0 16px 36px rgba(82, 95, 192, 0.1);
+  box-shadow: 0 16px 36px rgba(30, 41, 59, 0.55);
 }
 
 .question-block.correct {
-  background: #f0fdf4;
-  border-color: #bbf7d0;
-  box-shadow: 0 12px 30px rgba(34, 197, 94, 0.1);
+  background: #0f172a;
+  border-color: #164e63;
+  box-shadow: 0 12px 30px rgba(22, 163, 74, 0.12);
 }
 
 .question-block.correct .question-summary {
-  background: #ecfdf5;
+  background: #111e2f;
 }
 
 .question-block.correct .question-summary::after {
-  color: #16a34a;
+  color: #34d399;
 }
 
 .question-block.wrong {
-  background: #fff1f2;
-  border-color: #fecdd3;
-  box-shadow: 0 12px 30px rgba(244, 63, 94, 0.1);
+  background: #1f1b24;
+  border-color: #7f1d1d;
+  box-shadow: 0 12px 30px rgba(244, 63, 94, 0.12);
 }
 
 .question-block.wrong .question-summary {
-  background: #fff1f2;
+  background: #271f2a;
 }
 
 .question-block.wrong .question-summary::after {
-  color: #e11d48;
+  color: #f472b6;
 }
 
 .question-summary {
@@ -145,17 +145,17 @@ body {
   justify-content: space-between;
   width: 100%;
   padding: 1rem 1.25rem;
-  background: #f8f9ff;
+  background: #111827;
   cursor: pointer;
   font-size: 1rem;
   font-weight: 600;
-  color: #1f2937;
+  color: #e2e8f0;
   position: relative;
   line-height: 1.5;
 }
 
 .question-summary:hover {
-  background: #eef2ff;
+  background: #1f2937;
 }
 
 .question-summary::after {
@@ -166,7 +166,7 @@ body {
   transform: translateY(-50%);
   font-size: 1.4rem;
   font-weight: 300;
-  color: #5d7bff;
+  color: #60a5fa;
   transition: transform 0.3s ease;
 }
 
@@ -176,7 +176,7 @@ body {
 
 .details-content {
   padding: 0 1.25rem;
-  color: #334155;
+  color: #cbd5e1;
   line-height: 1.7;
   max-height: 0;
   overflow: hidden;
@@ -204,33 +204,33 @@ body {
   width: 100%;
   text-align: left;
   padding: 0.85rem 0.95rem;
-  border: 1px solid #dbe7ff;
+  border: 1px solid #334155;
   border-radius: 14px;
-  background: #f8f9ff;
-  color: #1f2937;
+  background: #0f172a;
+  color: #e2e8f0;
   font-size: 0.98rem;
   cursor: pointer;
   transition: background 180ms ease, border-color 180ms ease, transform 180ms ease;
 }
 
 .option-button:hover {
-  background: #eef2ff;
-  border-color: #bcd1ff;
+  background: #1f2937;
+  border-color: #475569;
 }
 
 .option-button.selected {
-  background: #dbe7ff;
-  border-color: #5d7bff;
-  box-shadow: 0 10px 24px rgba(45, 90, 255, 0.12);
+  background: #1e3a8a;
+  border-color: #3b82f6;
+  box-shadow: 0 10px 24px rgba(59, 130, 246, 0.18);
 }
 
 .answer-line {
   padding: 1rem;
   border-radius: 16px;
-  background: #eef2ff;
-  border: 1px solid #dbe7ff;
+  background: #111827;
+  border: 1px solid #334155;
   font-weight: 600;
-  color: #1d4ed8;
+  color: #93c5fd;
 }
 
 /* Buy Me a Coffee */
@@ -246,12 +246,12 @@ body {
 }
 
 .bmc-bubble {
-  background: #ffffff;
+  background: #111827;
   padding: 10px 14px;
   border-radius: 12px;
-  box-shadow: 0 18px 40px rgba(11,22,60,0.12);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
   font-size: 14px;
-  color: #0f1724;
+  color: #e2e8f0;
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -264,7 +264,7 @@ body {
   border: none;
   font-size: 14px;
   cursor: pointer;
-  color: #475569;
+  color: #94a3b8;
 }
 
 .bmc-btn {
@@ -273,12 +273,12 @@ body {
   gap: 10px;
   padding: 10px 16px;
   border-radius: 999px;
-  background: linear-gradient(180deg,#ffd400,#ffc400);
-  color: #081124;
+  background: linear-gradient(180deg, #facc15, #f59e0b);
+  color: #020617;
   text-decoration: none;
   font-weight: 800;
-  box-shadow: 0 18px 36px rgba(3,12,55,0.12);
-  border: 1px solid rgba(0,0,0,0.06);
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 .bmc-btn img { height: 20px; }
 
@@ -292,7 +292,7 @@ body {
 .footer {
   margin-top: 1.5rem;
   padding: 1rem 1rem 0;
-  color: #64748b;
+  color: #94a3b8;
   font-size: 0.94rem;
   text-align: center;
 }
